@@ -151,8 +151,10 @@ p:last-child { margin-bottom: 0; }
   .hero-grid { grid-template-columns: 1fr; gap: 2.25rem; }
   .hero-shot { max-width: 250px; }
 }
-/* on phones the download button and its note read better centred */
+/* on phones the hero reads better centred, button and note included */
 @media (max-width: 640px) {
+  .hero-copy { text-align: center; }
+  .hero .lede { margin-left: auto; margin-right: auto; }
   .cta-row { justify-content: center; text-align: center; }
   .cta-note { width: 100%; }
 }
