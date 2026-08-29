@@ -77,11 +77,43 @@ python3 -m http.server 8765
 
 Then open <http://127.0.0.1:8765>.
 
+## Before going live: set the domain
+
+The site is built for a custom domain that has not been chosen yet, so the
+canonical and Open Graph URLs carry a deliberate placeholder,
+`REPLACE-ME.example`. It is meant to be impossible to miss. Check it is gone
+before you publish:
+
+```bash
+grep -rn "REPLACE-ME.example" . --exclude-dir=.git
+```
+
+To set the real domain, in this folder:
+
+```bash
+DOMAIN=example.co.uk; sed -i '' "s/REPLACE-ME\.example/$DOMAIN/g" index.html && echo "$DOMAIN" > CNAME
+```
+
+Then point the domain's DNS at GitHub Pages and enable the custom domain in the
+repository's Pages settings.
+
 ## Publishing
 
-GitHub Pages, from the `main` branch, root folder. Push to `origin` and Pages
-rebuilds. Live at <https://sorr535771.github.io/arrangements-log-site/>.
+GitHub Pages, from the `main` branch, root folder. Push and Pages rebuilds.
 
-If a custom domain is added later, GitHub redirects the `github.io` URLs to it —
-but only add one when you are also ready to update the App Store Connect URL
-fields, and preferably alongside an app release.
+## The order that matters when the domain goes live
+
+The privacy and support links on this page still point at
+`sorr535771.github.io/arrangements-log/...`, and they must keep doing so until
+the new pages are actually serving. Those two URLs are compiled into the shipped
+1.0 binary and held by App Store Connect, so the sequence is:
+
+1. Put the site on the domain, with the legal and support pages reachable there.
+2. Confirm both new URLs serve 200.
+3. Update the four links in this page's footer and body.
+4. Update the Privacy Policy URL and Support URL in App Store Connect.
+5. Update `Legal.privacyPolicyURL` / `Legal.supportURL` in the app — a binary
+   change, so it ships with a version, not on its own.
+6. Only then let the old `github.io` pages go.
+
+Doing 6 before 2 is what caused the 404 on 19 Aug 2026.
