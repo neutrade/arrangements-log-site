@@ -361,3 +361,17 @@ h3 { font-size: 1.06rem; margin-bottom: .3rem; }
 @media (max-width: 640px) { .site-foot nav { margin-left: 0; } }
 
 :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 4px; }
+
+/* ---------- document pages (privacy, support) ---------- */
+
+.doc { max-width: 44rem; margin: 0 auto; padding: 3.5rem 1.5rem 3rem; }
+.doc h1 { font-size: clamp(2rem, 4.5vw, 2.5rem); letter-spacing: -0.03em; }
+.doc .sub { color: var(--ink-faint); margin: .5rem 0 2.25rem; font-size: .95rem; }
+.doc h2 { font-size: 1.1rem; margin: 2.25rem 0 .5rem; }
+.doc p { color: var(--ink-soft); }
+.doc .card {
+  background: var(--bg-soft); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.15rem 1.35rem; margin: 0 0 2rem;
+}
+.doc .card p { color: var(--ink); margin: 0; }
+.doc .back { display: inline-block; margin-top: 2.5rem; font-size: .95rem; }

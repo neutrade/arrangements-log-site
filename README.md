@@ -77,43 +77,62 @@ python3 -m http.server 8765
 
 Then open <http://127.0.0.1:8765>.
 
-## Before going live: set the domain
+## Domain and DNS
 
-The site is built for a custom domain that has not been chosen yet, so the
-canonical and Open Graph URLs carry a deliberate placeholder,
-`REPLACE-ME.example`. It is meant to be impossible to miss. Check it is gone
-before you publish:
+The site is built for **childarrangements.com** (registered 29 Aug 2026, GoDaddy).
+The app keeps its own name — Arrangements Log — the domain is just the address.
+
+`CNAME` holds the apex, so GitHub serves the site at `childarrangements.com` and
+redirects `www` to it. At GoDaddy, replace the parked records with:
+
+| Type | Name | Value |
+|---|---|---|
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | sorr535771.github.io |
+
+Delete the GoDaddy parking A records first (currently 15.197.148.33 and
+3.33.130.190) or they will fight the new ones. Then in the repository's
+Settings → Pages, set the custom domain to `childarrangements.com` and tick
+**Enforce HTTPS** once the certificate is issued (it can take up to an hour).
+
+Check it has taken:
 
 ```bash
-grep -rn "REPLACE-ME.example" . --exclude-dir=.git
+dig +short childarrangements.com A
+curl -sI https://childarrangements.com | head -1
 ```
-
-To set the real domain, in this folder:
-
-```bash
-DOMAIN=example.co.uk; sed -i '' "s/REPLACE-ME\.example/$DOMAIN/g" index.html && echo "$DOMAIN" > CNAME
-```
-
-Then point the domain's DNS at GitHub Pages and enable the custom domain in the
-repository's Pages settings.
 
 ## Publishing
 
 GitHub Pages, from the `main` branch, root folder. Push and Pages rebuilds.
 
-## The order that matters when the domain goes live
+## This site now hosts its own privacy and support pages
 
-The privacy and support links on this page still point at
-`sorr535771.github.io/arrangements-log/...`, and they must keep doing so until
-the new pages are actually serving. Those two URLs are compiled into the shipped
-1.0 binary and held by App Store Connect, so the sequence is:
+`privacy.html` and `support.html` here carry the SAME wording as
+`website/privacy.html` in the other repo — copied verbatim, because that wording
+is gated against `Legal.swift` by `Tools/check.sh privacy`. Only the surrounding
+page furniture differs.
 
-1. Put the site on the domain, with the legal and support pages reachable there.
-2. Confirm both new URLs serve 200.
-3. Update the four links in this page's footer and body.
-4. Update the Privacy Policy URL and Support URL in App Store Connect.
-5. Update `Legal.privacyPolicyURL` / `Legal.supportURL` in the app — a binary
-   change, so it ships with a version, not on its own.
-6. Only then let the old `github.io` pages go.
+That means the policy now exists in three places. Until the switch-over below is
+finished, **the copy in the old `website/` folder remains the canonical one** —
+edit that first, then mirror the change here.
 
-Doing 6 before 2 is what caused the 404 on 19 Aug 2026.
+## Switch-over order, when the domain is live
+
+The old pages at `sorr535771.github.io/arrangements-log/...` are still what the
+shipped 1.0 binary and App Store Connect point at. Do not touch them until the
+new ones are serving:
+
+1. Push this repo, set the custom domain, confirm
+   `https://childarrangements.com/privacy.html` and `/support.html` both return 200.
+2. Update the Privacy Policy URL and Support URL in App Store Connect.
+3. Update `Legal.privacyPolicyURL` / `Legal.supportURL` in the app — a binary
+   change, so it ships with a version (1.0.1), never on its own.
+4. Point `Tools/check.sh`'s `$site` path at this repo's `privacy.html`, so the
+   parity gate follows the canonical copy.
+5. Only once a build carrying the new URLs is live may the old pages go.
+
+Doing 5 before 1 is what caused the 404 on 19 Aug 2026.
