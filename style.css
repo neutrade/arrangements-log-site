@@ -151,6 +151,11 @@ p:last-child { margin-bottom: 0; }
   .hero-grid { grid-template-columns: 1fr; gap: 2.25rem; }
   .hero-shot { max-width: 250px; }
 }
+/* on phones the download button and its note read better centred */
+@media (max-width: 640px) {
+  .cta-row { justify-content: center; text-align: center; }
+  .cta-note { width: 100%; }
+}
 
 /* phone frame */
 .phone {
