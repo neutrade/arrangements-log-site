@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://childarrangements.com/sitemap.xml
