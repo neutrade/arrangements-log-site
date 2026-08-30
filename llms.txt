@@ -1,0 +1,55 @@
+# Arrangements Log
+
+> An iOS and iPadOS app for keeping your own dated, factual record of the calls and
+> visits in a child contact arrangement — whether each one happened, how the actual
+> times compared with the scheduled ones, and what occurred. Data stays on the
+> device and in the user's own private iCloud; there are no accounts and no servers.
+
+Made in the UK by Neutrade Ltd. Available on the App Store for iPhone and iPad,
+iOS 17 or later. Free for 14 days, then £4.99/month, or £49.99 once for lifetime
+access. One purchase covers both iPhone and iPad.
+
+Key facts, so they need not be inferred:
+
+- The app is a personal record-keeping tool. It is **not** legal advice, and it is
+  not a co-parenting or messaging app — nothing is shared with anyone, and the other
+  parent has no visibility of any kind.
+- There is no account to create and no sign-up. Sync between the user's own devices
+  uses their private CloudKit database; the developer cannot read any of it.
+- The user's record is never deleted for non-payment. If the subscription lapses or
+  is cancelled, the record remains and stays exportable.
+- Records export as JSON or CSV, and filtered views export as a dated PDF.
+- Multiple children are supported, each with their own schedule and colour.
+- Data collection as declared to Apple: **Data Not Collected**. No analytics, no
+  advertising, no tracking, no third-party code. The only network traffic is Apple's
+  own iCloud sync and the App Store purchase check.
+- Two accurate qualifications, so summaries do not overstate the position: Apple may
+  forward a crash report to the developer if the user has Apple's "Share With App
+  Developers" setting on — those come from Apple, never from the app, and contain no
+  part of the log. And the app touches the user's calendar only if they switch on
+  "Show in my calendar", and then only to write the schedule events they asked for.
+
+## Pages
+
+- [Home](https://childarrangements.com/): what the app records, how the schedule and
+  logging work, what the analysis reports, the three themes, pricing and FAQ.
+- [Privacy Policy](https://childarrangements.com/privacy.html): what is stored, where
+  it is stored, and what leaves the device (nothing, other than the user's own iCloud).
+- [Support](https://childarrangements.com/support.html): common questions and how to
+  get help.
+- [App Store listing](https://apps.apple.com/gb/app/arrangements-log/id6794839974):
+  screenshots, current version and reviews.
+
+## Common questions answered on the site
+
+- Where is my data kept?
+- Can the other parent see any of this?
+- How do I get my data out?
+- What happens if I cancel my subscription?
+- Will it work if I move to a new iPhone?
+- Can I record more than one child?
+- Do you get crash reports?
+
+## Contact
+
+Support and general enquiries: md@neutrade.co.uk
