@@ -17,6 +17,15 @@
   --amber-warm: #f0ad4e;
   --link:       #1a6974;
   --shot-frame: #d7dbe2;
+  /* the privacy band and trust strip take a pale teal from the icon; type
+     stays dark on it */
+  --band:       #dcebec;
+  --band-ink:   #16343c;
+  --band-soft:  #2f5560;
+  --band-rule:  rgba(26,105,116,.28);
+  --strip-bg:   #e9f2f3;
+  --panel-lift: 0 -1px 0 var(--line), 0 -30px 60px -34px rgba(20,30,50,.45);
+  --sink-veil:  20,30,50;
   --radius:     14px;
   --measure:    34rem;
   color-scheme: light dark;
@@ -36,6 +45,13 @@
     --amber:      #f0ad4e;
     --link:       #5fc3ce;
     --shot-frame: #2c3543;
+    --band:       #14262b;
+    --band-ink:   #eef1f5;
+    --band-soft:  rgba(238,241,245,.78);
+    --band-rule:  rgba(95,195,206,.3);
+    --strip-bg:   #16232a;
+    --panel-lift: 0 -1px 0 var(--line), 0 -30px 60px -30px rgba(0,0,0,.8);
+    --sink-veil:  0,0,0;
   }
 }
 
@@ -127,12 +143,13 @@ p:last-child { margin-bottom: 0; }
 
 /* ---------- hero ---------- */
 
-.hero { padding: 4.5rem 0 3.5rem; }
+.hero { padding: 4.5rem 0 3rem; overflow: hidden; }
 .hero-grid {
   display: grid; gap: 3rem;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
-  align-items: center;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  align-items: start;
 }
+.hero-copy { padding-top: 1.75rem; }
 .hero h1 {
   font-size: clamp(2.1rem, 5.2vw, 3.15rem);
   letter-spacing: -0.03em;
@@ -145,11 +162,21 @@ p:last-child { margin-bottom: 0; }
 }
 .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.4rem; }
 .cta-note { font-size: .92rem; color: var(--ink-faint); }
-.hero-shot { justify-self: center; max-width: 300px; width: 100%; }
+/* the hero's button stands alone with one line of facts under it */
+.hero-cta { flex-direction: column; align-items: flex-start; gap: .9rem; }
+.facts {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .6rem;
+  font-size: .92rem; line-height: 1.5; color: var(--ink-faint);
+}
+.facts b { color: var(--ink-soft); font-weight: 600; }
+/* the screenshot is the proof of the product: bigger, and it runs off the
+   bottom of the hero so the trust strip lays over it */
+.hero-shot { justify-self: center; max-width: 360px; width: 100%; margin-bottom: -11rem; will-change: transform; }
 @media (max-width: 800px) {
   .hero { padding: 2.75rem 0 2.5rem; }
   .hero-grid { grid-template-columns: 1fr; gap: 2.25rem; }
-  .hero-shot { max-width: 250px; }
+  .hero-copy { padding-top: 0; }
+  .hero-shot { max-width: 250px; margin-bottom: -13rem; }
 }
 /* on phones the hero reads better centred, button and note included */
 @media (max-width: 640px) {
@@ -157,6 +184,8 @@ p:last-child { margin-bottom: 0; }
   .hero .lede { margin-left: auto; margin-right: auto; }
   .cta-row { justify-content: center; text-align: center; }
   .cta-note { width: 100%; }
+  .hero-cta { align-items: center; }
+  .facts { justify-content: center; }
 }
 
 /* phone frame */
@@ -175,10 +204,8 @@ p:last-child { margin-bottom: 0; }
 /* ---------- trust strip ---------- */
 
 .strip {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: var(--bg-soft);
-  padding: 1.1rem 0;
+  background: var(--strip-bg);
+  padding: 1.15rem 0;
 }
 .strip ul {
   list-style: none; margin: 0; padding: 0;
@@ -202,22 +229,36 @@ h2 { font-size: clamp(1.55rem, 3.4vw, 2.05rem); margin-bottom: .85rem; text-wrap
 h3 { font-size: 1.06rem; margin-bottom: .3rem; }
 .section-intro { color: var(--ink-soft); font-size: 1.06rem; }
 
-/* alternating feature rows */
-.feature {
-  display: grid; gap: 3rem;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: center;
+/* the four feature blocks scroll past one pinned phone, whose screen
+   follows whichever block is being read */
+.section-lead { margin-bottom: 2.5rem; }
+.stage-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 4rem; align-items: start; }
+.rail { min-width: 0; }
+.step { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; padding: 2rem 0; }
+.step:first-child { padding-top: 0; min-height: 70vh; }
+.stage { position: sticky; top: 5.5rem; }
+.screens {
+  position: relative; aspect-ratio: 660 / 1434; border-radius: 30px; overflow: hidden;
+  border: 1px solid var(--shot-frame); background: var(--bg-soft);
+  box-shadow: 0 1px 2px rgba(20,30,50,.06), 0 18px 44px -14px rgba(20,30,50,.28);
 }
-.feature + .feature { margin-top: 4.5rem; }
-.feature .shot { justify-self: center; max-width: 280px; width: 100%; }
-.feature.flip .copy { order: 2; }
-.feature.flip .shot { order: 1; }
+.screens img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* without JavaScript every screen stays visible (stacked, first on top);
+   with it, only the active one shows */
+html.js .screens img { opacity: 0; transition: opacity .5s ease; }
+html.js .screens img.is-on { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { html.js .screens img { transition: none; } }
+.stage-caption { margin-top: .85rem; text-align: center; font-size: .88rem; color: var(--ink-faint); }
+.stage-caption b { color: var(--ink-soft); font-weight: 600; }
+.stage-dots { display: flex; justify-content: center; gap: .4rem; margin-top: .7rem; }
+.stage-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--line); transition: background .3s ease; }
+.stage-dots i.is-on { background: var(--teal); }
 @media (max-width: 800px) {
-  .feature { grid-template-columns: 1fr; gap: 2rem; }
-  .feature + .feature { margin-top: 3.25rem; }
-  .feature.flip .copy { order: 1; }
-  .feature.flip .shot { order: 2; }
-  .feature .shot { max-width: 240px; }
+  .section-lead { margin-bottom: 1.5rem; }
+  .stage-wrap { grid-template-columns: 1fr; gap: 1.5rem; }
+  .stage { order: -1; top: 4.2rem; max-width: 150px; margin: 0 auto; }
+  .step { min-height: auto; padding: 1.75rem 0; }
+  .step:first-child { min-height: auto; }
 }
 
 /* tick list */
@@ -233,44 +274,38 @@ h3 { font-size: 1.06rem; margin-bottom: .3rem; }
 }
 .ticks strong { color: var(--ink); font-weight: 600; }
 
-/* pull quote — real strings the app produces */
-.finding {
-  border-left: 3px solid var(--amber-warm);
-  background: var(--bg-soft);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  padding: 1rem 1.25rem;
-  margin: 1.3rem 0;
-  font-size: 1.02rem;
-  color: var(--ink);
+/* real strings the app produces, set as typography: label, sentence, rule */
+.finding-label {
+  font-size: .8rem; font-weight: 650; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--amber); margin: 1.4rem 0 .6rem;
 }
-.finding + .finding { margin-top: .8rem; }
-.finding-note {
-  display: block; margin-top: .5rem;
+.finding {
+  font-size: 1.15rem; line-height: 1.45; letter-spacing: -.01em; color: var(--ink);
+  margin: 0 0 .8rem; text-wrap: pretty;
+}
+.finding-foot {
+  border-top: 1px solid var(--line); padding-top: .6rem; margin: 0 0 1.2rem;
   font-size: .85rem; color: var(--ink-faint);
 }
 
 /* ---------- privacy band ---------- */
 
-.band {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
-  color: #fff;
-}
-.band h2, .band .eyebrow { color: #fff; }
-.band .eyebrow { color: rgba(255,255,255,.72); }
-.band .section-intro { color: rgba(255,255,255,.86); }
-.band a { color: #fff; }
+.band { background: var(--band); color: var(--band-ink); }
+.band h2 { color: var(--band-ink); }
+.band .eyebrow { color: var(--teal); }
+.band .section-intro { color: var(--band-soft); }
+.band a { color: var(--band-ink); }
+/* four hairline entries in two rows — two columns always, so no card is
+   ever left alone on a row */
 .privacy-grid {
-  display: grid; gap: 1.25rem; margin-top: 2.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  display: grid; gap: 1.75rem 3rem; margin-top: 2.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-.privacy-card {
-  background: rgba(255,255,255,.10);
-  border: 1px solid rgba(255,255,255,.16);
-  border-radius: var(--radius);
-  padding: 1.15rem 1.3rem;
-}
-.privacy-card h3 { margin-bottom: .35rem; }
-.privacy-card p { font-size: .95rem; color: rgba(255,255,255,.85); }
+.privacy-card { border-top: 1px solid var(--band-rule); padding-top: 1rem; }
+.privacy-card h3 { font-size: 1.08rem; margin-bottom: .4rem; }
+.privacy-card p { font-size: .95rem; color: var(--band-soft); }
+.band-foot { margin-top: 1.75rem; font-size: .95rem; color: var(--band-soft); max-width: 44rem; }
+@media (max-width: 640px) { .privacy-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
 
 /* ---------- themes + iPad ---------- */
 
@@ -278,7 +313,8 @@ h3 { font-size: 1.06rem; margin-bottom: .3rem; }
   display: grid; gap: 1.5rem; margin-top: 2.25rem;
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
-.themes figure { margin: 0; }
+.themes { align-items: start; }
+.themes figure { margin: 0; will-change: transform; }
 .themes figcaption {
   margin-top: .65rem; font-size: .88rem; color: var(--ink-faint); text-align: center;
 }
@@ -314,16 +350,12 @@ h3 { font-size: 1.06rem; margin-bottom: .3rem; }
 .plan-trial { font-size: .93rem; font-weight: 600; color: var(--amber); margin-bottom: .8rem; }
 .plan-body { font-size: .95rem; color: var(--ink-soft); }
 .plan-shared { margin-top: 2rem; }
+.pricing { background: var(--bg-soft); }
 
-/* ---------- disclaimer ---------- */
+/* ---------- disclaimer, set as typography under the plans ---------- */
 
-.note {
-  border: 1px solid var(--line); border-left: 3px solid var(--ink-faint);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  background: var(--bg-soft);
-  padding: 1.25rem 1.5rem;
-}
-.note h2 { font-size: 1.12rem; margin-bottom: .5rem; }
+.note { border-top: 1px solid var(--line); padding-top: 1.1rem; margin-top: 2.75rem; max-width: 44rem; }
+.note h2 { font-size: 1.02rem; font-weight: 600; margin-bottom: .35rem; }
 .note p { font-size: .97rem; color: var(--ink-soft); }
 
 /* ---------- FAQ ---------- */
@@ -349,7 +381,7 @@ h3 { font-size: 1.06rem; margin-bottom: .3rem; }
 
 /* ---------- closing CTA ---------- */
 
-.closing { text-align: center; padding: 5rem 0; }
+.closing { text-align: center; padding: 5rem 0 5.5rem; background: var(--bg-soft); }
 .closing img { width: 76px; height: 76px; border-radius: 18px; margin: 0 auto 1.25rem; }
 .closing h2 { margin-bottom: .75rem; }
 .closing .lede { color: var(--ink-soft); max-width: 32rem; margin: 0 auto 1.75rem; }
@@ -366,6 +398,33 @@ h3 { font-size: 1.06rem; margin-bottom: .3rem; }
 .site-foot .wrap { display: flex; flex-wrap: wrap; gap: .75rem 1.75rem; align-items: center; }
 .site-foot nav { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-left: auto; }
 @media (max-width: 640px) { .site-foot nav { margin-left: 0; } }
+
+/* ---------- layers ----------
+   Every band of the home page is a .panel. With JavaScript each one pins in
+   place (the script sets where) and the next slides up over it with a rounded
+   top edge, a shadow cast upward, and a veil that deepens as it is covered.
+   Without JavaScript the panels simply overlap by 2rem. */
+
+.panel { position: relative; }
+:where(.panel) { background: var(--bg); }
+.panel > .wrap { position: relative; z-index: 1; }
+html.js .panel { position: sticky; top: 0; }
+.panel + .panel {
+  margin-top: -2rem;
+  border-radius: 26px 26px 0 0;
+  box-shadow: var(--panel-lift);
+}
+.panel::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  border-radius: inherit;
+  background: rgb(var(--sink-veil));
+  opacity: calc(var(--sink, 0) * .30);
+}
+.panel > .wrap { transform: translate3d(0, calc(var(--sink, 0) * 26px), 0); }
+@media (prefers-reduced-motion: reduce) {
+  .panel > .wrap { transform: none; }
+  .panel::after { opacity: calc(var(--sink, 0) * .18); }
+}
 
 :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 4px; }
 

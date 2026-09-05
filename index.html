@@ -7,6 +7,7 @@
 <meta name="description" content="Arrangements Log keeps a calm, dated record of the calls and visits in a child contact arrangement: whether each one happened, how the times compared with what was agreed, and what actually occurred. Private to your iPhone and your own iCloud.">
 <link rel="canonical" href="https://childarrangements.com/">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.className += " js";</script>
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <link rel="icon" href="assets/icon-64.png" type="image/png">
 
@@ -68,7 +69,7 @@
 <main id="main">
 
   <!-- ================= HERO ================= -->
-  <section class="hero">
+  <section class="panel hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <h1>A calm, factual record of contact with your child.</h1>
@@ -78,17 +79,18 @@
           compared with the scheduled ones, and what occurred. It stays on your iPhone
           and in your own private iCloud.
         </p>
-        <div class="cta-row">
+        <div class="cta-row hero-cta">
           <a class="btn" href="https://apps.apple.com/gb/app/arrangements-log/id6794839974">
             Download on the App&nbsp;Store <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
-          <span class="cta-note">
-            Free for 14 days, then £4.99/month — or buy it once for £49.99.<br>
-            iPhone and iPad, iOS&nbsp;17 or later.
-          </span>
+          <p class="facts">
+            <b>Free for 14 days</b> <span aria-hidden="true">·</span>
+            <span>then £4.99/month, or £49.99 once</span> <span aria-hidden="true">·</span>
+            <span>iPhone and iPad, iOS&nbsp;17 or later</span>
+          </p>
         </div>
       </div>
-      <div class="hero-shot">
+      <div class="hero-shot" data-par="0.18">
         <div class="phone">
           <img src="assets/home.png" width="660" height="1434" fetchpriority="high"
                alt="The Arrangements Log calendar for July 2026. Coloured marks show contacts that took place, ones with problems, ones that did not happen and ones varied by agreement, with longer bands for multi-day stays. A summary underneath reads 11 logged, 3 late starts.">
@@ -98,162 +100,138 @@
   </section>
 
   <!-- ================= TRUST STRIP ================= -->
-  <div class="strip">
+  <div class="panel strip">
     <div class="wrap">
       <ul>
         <li>
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0 1.5 2.6v5.2c0 3.6 2.7 7 6.5 8.2 3.8-1.2 6.5-4.6 6.5-8.2V2.6L8 0Zm3.3 5.8-4 4.3a.8.8 0 0 1-1.15.02L4.2 8.3a.8.8 0 1 1 1.14-1.12l1.36 1.38 3.43-3.68a.8.8 0 1 1 1.17 1.1Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2.5" width="12" height="4" rx="1"/><rect x="2" y="9.5" width="12" height="4" rx="1"/><path d="M1.5 14.5 14.5 1.5"/></svg>
           No accounts, no servers
         </li>
         <li>
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0 1.5 2.6v5.2c0 3.6 2.7 7 6.5 8.2 3.8-1.2 6.5-4.6 6.5-8.2V2.6L8 0Zm3.3 5.8-4 4.3a.8.8 0 0 1-1.15.02L4.2 8.3a.8.8 0 1 1 1.14-1.12l1.36 1.38 3.43-3.68a.8.8 0 1 1 1.17 1.1Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 8s2.5-4.5 6.5-4.5S14.5 8 14.5 8s-2.5 4.5-6.5 4.5S1.5 8 1.5 8Z"/><circle cx="8" cy="8" r="2"/><path d="M2 14 14 2"/></svg>
           No analytics, no third-party code
         </li>
         <li>
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0 1.5 2.6v5.2c0 3.6 2.7 7 6.5 8.2 3.8-1.2 6.5-4.6 6.5-8.2V2.6L8 0Zm3.3 5.8-4 4.3a.8.8 0 0 1-1.15.02L4.2 8.3a.8.8 0 1 1 1.14-1.12l1.36 1.38 3.43-3.68a.8.8 0 1 1 1.17 1.1Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 1.5 2.5 3.7v4.3c0 3 2.3 5.8 5.5 6.8 3.2-1 5.5-3.8 5.5-6.8V3.7L8 1.5Z"/><path d="m5.5 8 1.8 1.8L10.8 6"/></svg>
           “Data Not Collected” on the App Store
         </li>
         <li>
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0 1.5 2.6v5.2c0 3.6 2.7 7 6.5 8.2 3.8-1.2 6.5-4.6 6.5-8.2V2.6L8 0Zm3.3 5.8-4 4.3a.8.8 0 0 1-1.15.02L4.2 8.3a.8.8 0 1 1 1.14-1.12l1.36 1.38 3.43-3.68a.8.8 0 1 1 1.17 1.1Z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 14.5s4.5-4.2 4.5-7.5a4.5 4.5 0 0 0-9 0c0 3.3 4.5 7.5 4.5 7.5Z"/><circle cx="8" cy="7" r="1.6"/></svg>
           Made in the UK by Neutrade Ltd
         </li>
       </ul>
     </div>
   </div>
 
-  <!-- ================= WHO IT'S FOR ================= -->
-  <section>
-    <div class="wrap measure">
-      <p class="eyebrow">What it is</p>
-      <h2>Built for one person keeping their own careful notes.</h2>
-      <p class="section-intro">
-        There is no account to create, nobody else to invite, and nothing you write is
-        ever shared. The app is deliberately neutral in tone, because a calm, accurate,
-        contemporaneous record is far more useful than a critical one.
-      </p>
-    </div>
-  </section>
-
-  <!-- ================= FEATURES ================= -->
-  <section id="what-you-record" style="padding-top:0">
+  <!-- ================= WHAT IT IS + FEATURES ================= -->
+  <section class="panel" id="what-you-record">
     <div class="wrap">
-
-      <!-- 1. the record -->
-      <div class="feature">
-        <div class="copy">
-          <p class="eyebrow">The record</p>
-          <h2>Every contact, written down while it is fresh.</h2>
-          <p>
-            Each entry captures what actually happened, in the detail that matters later —
-            not just that something was “missed”.
-          </p>
-          <ul class="ticks">
-            <li><strong>Calls and visits</strong>, and whether each one took place, was cancelled, or went unanswered</li>
-            <li><strong>Scheduled times against actual times</strong>, so lateness is measured rather than remembered</li>
-            <li><strong>Who a late start is attributed to</strong>, and the reason given — including “no explanation given”, which is itself a fact</li>
-            <li><strong>Issues during contact</strong>, and problems at handover</li>
-            <li><strong>Multi-day stays</strong>, with nights counted properly</li>
-            <li><strong>Which child</strong> each contact was for — each one wears their own colour on the calendar</li>
-            <li><strong>Where a visit happened</strong>, from your own saved places</li>
-            <li><strong>Your own tags</strong>, so the patterns you care about are easy to find again</li>
-          </ul>
-        </div>
-        <div class="shot">
-          <div class="phone">
-            <img src="assets/log.png" width="660" height="1434" loading="lazy"
-                 alt="The Log tab: a list of dated entries, each showing the type of contact, its outcome, and how the actual times compared with the scheduled ones.">
-          </div>
-        </div>
+      <div class="measure section-lead">
+        <p class="eyebrow">What it is</p>
+        <h2>Built for one person keeping their own careful notes.</h2>
+        <p class="section-intro">
+          There is no account to create, nobody else to invite, and nothing you write is
+          ever shared. The app is deliberately neutral in tone, because a calm, accurate,
+          contemporaneous record is far more useful than a critical one.
+        </p>
       </div>
 
-      <!-- 2. the arrangement -->
-      <div class="feature flip">
-        <div class="copy">
-          <p class="eyebrow">The arrangement</p>
-          <h2>State the schedule once, and the app works from it.</h2>
-          <p>
-            Set out the regular pattern — which days, what times, weekly or alternating —
-            and the calendar shows what is planned as well as what happened.
-          </p>
-          <ul class="ticks">
-            <li>A <strong>planned mark disappears</strong> the moment you log the real thing</li>
-            <li>Fallen behind? <strong>Catch up</strong> lists what was scheduled but never logged — nothing is ever filled in for you</li>
-            <li><strong>One-off changes and forward overrides</strong>, for when the arrangement shifts</li>
-            <li>Optional <strong>reminders</strong> to log the evening’s contact while you remember it</li>
-            <li>Optionally <strong>mirror the schedule into your own calendar</strong> — Google included — kept up to date automatically</li>
-          </ul>
+      <!-- the phone holds still while the four blocks scroll past it, and its
+           screen follows whichever block is being read -->
+      <div class="stage-wrap">
+        <div class="rail">
+          <div class="step" data-screen="0">
+            <p class="eyebrow">The record</p>
+            <h2>Every contact, written down while it is fresh.</h2>
+            <p>
+              Each entry captures what actually happened, in the detail that matters later —
+              not just that something was “missed”.
+            </p>
+            <ul class="ticks">
+              <li><strong>Calls and visits</strong>, and whether each one took place, was cancelled, or went unanswered</li>
+              <li><strong>Scheduled times against actual times</strong>, so lateness is measured rather than remembered</li>
+              <li><strong>Who a late start is attributed to</strong>, and the reason given — including “no explanation given”, which is itself a fact</li>
+              <li><strong>Issues during contact</strong>, and problems at handover</li>
+              <li><strong>Multi-day stays</strong>, with nights counted properly</li>
+              <li><strong>Which child</strong> each contact was for — each one wears their own colour on the calendar</li>
+              <li><strong>Where a visit happened</strong>, from your own saved places</li>
+              <li><strong>Your own tags</strong>, so the patterns you care about are easy to find again</li>
+            </ul>
+          </div>
+
+          <div class="step" data-screen="1">
+            <p class="eyebrow">The arrangement</p>
+            <h2>State the schedule once, and the app works from it.</h2>
+            <p>
+              Set out the regular pattern — which days, what times, weekly or alternating —
+              and the calendar shows what is planned as well as what happened.
+            </p>
+            <ul class="ticks">
+              <li>A <strong>planned mark disappears</strong> the moment you log the real thing</li>
+              <li>Fallen behind? <strong>Catch up</strong> lists what was scheduled but never logged — nothing is ever filled in for you</li>
+              <li><strong>One-off changes and forward overrides</strong>, for when the arrangement shifts</li>
+              <li>Optional <strong>reminders</strong> to log the evening’s contact while you remember it</li>
+              <li>Optionally <strong>mirror the schedule into your own calendar</strong> — Google included — kept up to date automatically</li>
+            </ul>
+          </div>
+
+          <div class="step" data-screen="2">
+            <p class="eyebrow">What it tells you</p>
+            <h2>Plain English, not just charts.</h2>
+            <p>
+              The Analysis tab reads the log back to you in sentences you could put in front
+              of anyone:
+            </p>
+
+            <p class="finding-label">What the app wrote</p>
+            <p class="finding">5 of 6 timed contacts (83%) started late — on average 29 minutes, worst 45 minutes.</p>
+            <p class="finding">Timekeeping is getting worse: average 20 min late in the earlier half of this period vs 29 min recently.</p>
+            <p class="finding-foot">Examples of the wording the app produces from your own entries.</p>
+
+            <p>
+              Alongside that: lateness over time, contacts per month, how often each issue
+              and each tag appears, and a month-by-month summary — filtered by any period,
+              type or tag.
+            </p>
+          </div>
+
+          <div class="step" data-screen="3">
+            <p class="eyebrow">Taking it out</p>
+            <h2>A dated PDF of exactly what you filtered.</h2>
+            <p>
+              Narrow the log to what you need — a date range, calls only, late starts,
+              anything you have tagged — and turn precisely that into a document.
+            </p>
+            <ul class="ticks">
+              <li>Two ready-made shapes: a short <strong>chronology</strong> of dates, times and what happened, or the <strong>full log</strong> including your notes and your child’s own words</li>
+              <li>Every section is a switch, so you decide what goes in</li>
+              <li>Prints on <strong>A4 or US Letter</strong>, and shows the page count before you create it</li>
+              <li>If you printed a filtered selection, <strong>the first page says so</strong>. Nothing is trimmed to fit</li>
+              <li>A closing note explains how the times were recorded, what counts as a late start, and <strong>which entries were amended</strong> after they were written</li>
+            </ul>
+          </div>
         </div>
-        <div class="shot">
-          <div class="phone">
+
+        <div class="stage">
+          <div class="screens">
+            <img class="is-on" src="assets/log.png" width="660" height="1434"
+                 alt="The Log tab: a list of dated entries, each showing the type of contact, its outcome, and how the actual times compared with the scheduled ones.">
             <img src="assets/settings.png" width="660" height="1434" loading="lazy"
                  alt="The Settings tab, where the regular schedule, reminders, themes and other preferences are configured.">
-          </div>
-        </div>
-      </div>
-
-      <!-- 3. analysis -->
-      <div class="feature">
-        <div class="copy">
-          <p class="eyebrow">What it tells you</p>
-          <h2>Plain English, not just charts.</h2>
-          <p>
-            The Analysis tab reads the log back to you in sentences you could put in front
-            of anyone:
-          </p>
-
-          <div class="finding">
-            “5 of 6 timed contacts (83%) started late — on average 29 minutes, worst 45 minutes.”
-          </div>
-          <div class="finding">
-            “Timekeeping is getting worse: average 20 min late in the earlier half of this
-            period vs 29 min recently.”
-            <span class="finding-note">Examples of the wording the app produces from your own entries.</span>
-          </div>
-
-          <p>
-            Alongside that: lateness over time, contacts per month, how often each issue
-            and each tag appears, and a month-by-month summary — filtered by any period,
-            type or tag.
-          </p>
-        </div>
-        <div class="shot">
-          <div class="phone">
             <img src="assets/analysis.png" width="660" height="1434" loading="lazy"
                  alt="The Analysis tab showing tiles for contacts logged, contacts that did not take place, late starts, contact issues, handover problems and nights, followed by a What the data shows section written in plain sentences.">
-          </div>
-        </div>
-      </div>
-
-      <!-- 4. report -->
-      <div class="feature flip">
-        <div class="copy">
-          <p class="eyebrow">Taking it out</p>
-          <h2>A dated PDF of exactly what you filtered.</h2>
-          <p>
-            Narrow the log to what you need — a date range, calls only, late starts,
-            anything you have tagged — and turn precisely that into a document.
-          </p>
-          <ul class="ticks">
-            <li>Two ready-made shapes: a short <strong>chronology</strong> of dates, times and what happened, or the <strong>full log</strong> including your notes and your child’s own words</li>
-            <li>Every section is a switch, so you decide what goes in</li>
-            <li>Prints on <strong>A4 or US Letter</strong>, and shows the page count before you create it</li>
-            <li>If you printed a filtered selection, <strong>the first page says so</strong>. Nothing is trimmed to fit</li>
-            <li>A closing note explains how the times were recorded, what counts as a late start, and <strong>which entries were amended</strong> after they were written</li>
-          </ul>
-        </div>
-        <div class="shot">
-          <div class="phone">
             <img src="assets/report.png" width="660" height="1434" loading="lazy"
                  alt="The Report tab: a builder with a choice of chronology or full log, switches for what goes in, a date range, and a live page count.">
           </div>
+          <div class="stage-dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i></div>
+          <p class="stage-caption">Now showing <b id="stage-name">Log</b></p>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- ================= PRIVACY ================= -->
-  <section id="privacy" class="band">
+  <section id="privacy" class="panel band">
     <div class="wrap">
       <div class="measure">
         <p class="eyebrow">Private by design</p>
@@ -297,7 +275,7 @@
         </div>
       </div>
 
-      <p style="margin-top:1.75rem;font-size:.95rem;color:rgba(255,255,255,.8);max-width:44rem">
+      <p class="band-foot">
         If the app ever crashes, Apple may send us a crash report — but only if you have
         Apple’s own “Share With App Developers” setting on. It says why the app stopped
         and contains nothing you have written.
@@ -307,7 +285,7 @@
   </section>
 
   <!-- ================= THEMES + IPAD ================= -->
-  <section>
+  <section class="panel">
     <div class="wrap">
       <div class="measure">
         <p class="eyebrow">On screen</p>
@@ -319,25 +297,25 @@
       </div>
 
       <div class="themes">
-        <figure>
+        <figure data-par="0.05">
           <div class="phone sm">
             <img src="assets/home.png" width="660" height="1434" loading="lazy" alt="The calendar in the Standard theme.">
           </div>
           <figcaption>Standard</figcaption>
         </figure>
-        <figure>
+        <figure data-par="0.14">
           <div class="phone sm">
             <img src="assets/home-pink.png" width="660" height="1434" loading="lazy" alt="The calendar in the Pink theme.">
           </div>
           <figcaption>Pink</figcaption>
         </figure>
-        <figure>
+        <figure data-par="0.23">
           <div class="phone sm">
             <img src="assets/home-blue.png" width="660" height="1434" loading="lazy" alt="The calendar in the Blue theme.">
           </div>
           <figcaption>Blue</figcaption>
         </figure>
-        <figure>
+        <figure data-par="0.32">
           <div class="phone sm">
             <img src="assets/home-dark.png" width="660" height="1434" loading="lazy" alt="The calendar in dark mode.">
           </div>
@@ -362,7 +340,7 @@
   </section>
 
   <!-- ================= PRICING ================= -->
-  <section id="pricing" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <section id="pricing" class="panel pricing">
     <div class="wrap">
       <div class="measure">
         <p class="eyebrow">Price</p>
@@ -406,13 +384,8 @@
         </a>
         <span class="cta-note">Both options are shown in the app when you first open it.</span>
       </div>
-    </div>
-  </section>
 
-  <!-- ================= DISCLAIMER ================= -->
-  <section style="padding-bottom:0">
-    <div class="wrap">
-      <div class="note measure" style="max-width:44rem">
+      <div class="note">
         <h2>A record-keeping tool, not legal advice</h2>
         <p>
           Whether anything you record is useful or admissible in legal proceedings is a
@@ -424,7 +397,7 @@
   </section>
 
   <!-- ================= FAQ ================= -->
-  <section id="faq">
+  <section id="faq" class="panel">
     <div class="wrap">
       <div class="measure">
         <p class="eyebrow">Questions</p>
@@ -496,7 +469,7 @@
   </section>
 
   <!-- ================= CLOSING ================= -->
-  <section class="closing" style="background:var(--bg-soft);border-top:1px solid var(--line)">
+  <section class="panel closing">
     <div class="wrap">
       <img src="assets/icon-180.png" width="76" height="76" loading="lazy" alt="">
       <h2>Start the record today, not the week you need it.</h2>
@@ -526,6 +499,88 @@
     </nav>
   </div>
 </footer>
+
+<!-- First-party and inline (the page still makes no third-party requests).
+     Drives three things CSS cannot: where each panel pins, how far a panel
+     "sinks" as the next one covers it, and the phone whose screen follows
+     the block being read. Everything on the page is readable with it off. -->
+<script>
+(function () {
+  var panels = [].slice.call(document.querySelectorAll('.panel'));
+  var movers = [].slice.call(document.querySelectorAll('[data-par]'));
+  var steps = [].slice.call(document.querySelectorAll('.step'));
+  var shots = [].slice.call(document.querySelectorAll('.screens img'));
+  var dots = [].slice.call(document.querySelectorAll('.stage-dots i'));
+  var nameEl = document.getElementById('stage-name');
+  var names = ['Log', 'Settings', 'Analysis', 'Report'];
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)');
+
+  panels.forEach(function (p, i) { p.style.zIndex = i + 1; });
+
+  /* a panel shorter than the screen pins at the top; a taller one scrolls
+     until its end is on screen, then pins there — so the next panel always
+     slides over a panel that has been read in full */
+  function pin() {
+    var vh = innerHeight;
+    panels.forEach(function (p) { p.style.top = Math.min(0, vh - p.offsetHeight) + 'px'; });
+  }
+  if ('ResizeObserver' in window) {
+    var ro = new ResizeObserver(pin);
+    panels.forEach(function (p) { ro.observe(p); });
+  }
+
+  /* measure the drifting elements with their transforms cleared, so the
+     maths never feeds back on itself */
+  function measure() {
+    pin();
+    movers.forEach(function (el) { el.style.transform = ''; });
+    movers.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      el._top = r.top + scrollY; el._h = r.height;
+    });
+  }
+
+  var current = 0;
+  function show(n) {
+    if (n === current) return;
+    current = n;
+    shots.forEach(function (s, i) { s.classList.toggle('is-on', i === n); });
+    dots.forEach(function (d, i) { d.classList.toggle('is-on', i === n); });
+    if (nameEl) nameEl.textContent = names[n];
+  }
+
+  var queued = false;
+  function frame() {
+    queued = false;
+    var vh = innerHeight, i;
+    for (i = 0; i < panels.length; i++) {
+      var next = panels[i + 1], s = 0;
+      if (next) { s = 1 - next.getBoundingClientRect().top / vh; s = s < 0 ? 0 : s > 1 ? 1 : s; }
+      panels[i].style.setProperty('--sink', s.toFixed(3));
+    }
+    if (!reduce.matches) {
+      for (i = 0; i < movers.length; i++) {
+        var el = movers[i];
+        var t = (el._top + el._h / 2 - scrollY - vh / 2) / vh;
+        el.style.transform = 'translate3d(0,' + (t * el.dataset.par * 90).toFixed(1) + 'px,0)';
+      }
+    }
+    /* the last block whose top has crossed the middle of the screen is the
+       one being read */
+    var active = 0;
+    for (i = 0; i < steps.length; i++) {
+      if (steps[i].getBoundingClientRect().top <= vh * 0.5) active = i;
+    }
+    show(active);
+  }
+  function onScroll() { if (!queued) { queued = true; requestAnimationFrame(frame); } }
+
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', function () { measure(); onScroll(); });
+  addEventListener('load', function () { measure(); frame(); });
+  measure(); frame();
+})();
+</script>
 
 </body>
 </html>
