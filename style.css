@@ -253,12 +253,20 @@ html.js .screens img.is-on { opacity: 1; }
 .stage-dots { display: flex; justify-content: center; gap: .4rem; margin-top: .7rem; }
 .stage-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--line); transition: background .3s ease; }
 .stage-dots i.is-on { background: var(--teal); }
+/* on mobile there is no room for a phone that pins beside the text, so
+   each step gets its own small screenshot instead of one shared image */
+.step-shot { display: none; }
 @media (max-width: 800px) {
   .section-lead { margin-bottom: 1.5rem; }
   .stage-wrap { grid-template-columns: 1fr; gap: 1.5rem; }
-  /* the sticky pin only makes sense next to a tall two-column rail;
-     on a single stacked column it would ride over the text instead */
-  .stage { position: static; order: -1; max-width: 150px; margin: 0 auto; }
+  .stage { display: none; }
+  .step-shot {
+    display: block; width: 120px; margin: 0 auto 1.1rem; aspect-ratio: 660 / 1434;
+    border-radius: 22px; overflow: hidden; border: 1px solid var(--shot-frame);
+    background: var(--bg-soft);
+    box-shadow: 0 1px 2px rgba(20,30,50,.06), 0 12px 28px -12px rgba(20,30,50,.28);
+  }
+  .step-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .step { min-height: auto; padding: 1.75rem 0; }
   .step:first-child { min-height: auto; }
 }
