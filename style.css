@@ -256,7 +256,9 @@ html.js .screens img.is-on { opacity: 1; }
 @media (max-width: 800px) {
   .section-lead { margin-bottom: 1.5rem; }
   .stage-wrap { grid-template-columns: 1fr; gap: 1.5rem; }
-  .stage { order: -1; top: 4.2rem; max-width: 150px; margin: 0 auto; }
+  /* the sticky pin only makes sense next to a tall two-column rail;
+     on a single stacked column it would ride over the text instead */
+  .stage { position: static; order: -1; max-width: 150px; margin: 0 auto; }
   .step { min-height: auto; padding: 1.75rem 0; }
   .step:first-child { min-height: auto; }
 }
