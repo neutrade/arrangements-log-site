@@ -460,3 +460,35 @@ html.js .panel { position: sticky; top: 0; }
 }
 .doc .card p { color: var(--ink); margin: 0; }
 .doc .back { display: inline-block; margin-top: 2.5rem; font-size: .95rem; }
+
+/* ---- Guides: long-form reference pages built on .doc ---- */
+.doc .meta { color: var(--ink-faint); font-size: .9rem; margin: .25rem 0 2rem; }
+.doc h2 { font-size: 1.35rem; margin: 2.75rem 0 .75rem; letter-spacing: -0.01em; }
+.doc h3 { font-size: 1.05rem; margin: 1.75rem 0 .4rem; }
+.doc ul, .doc ol { color: var(--ink-soft); padding-left: 1.25rem; margin: 0 0 1rem; }
+.doc li { margin: 0 0 .45rem; }
+.doc li::marker { color: var(--ink-faint); }
+.doc .answer { border-left: 3px solid var(--teal); padding: .1rem 0 .1rem 1.1rem; margin: 0 0 2rem; }
+.doc .answer p { color: var(--ink); }
+.doc blockquote { margin: 1rem 0 1.25rem; padding: .85rem 1.15rem; background: var(--bg-soft);
+  border: 1px solid var(--line); border-radius: var(--radius); color: var(--ink); font-size: .97rem; }
+.doc blockquote p { color: var(--ink); margin: 0 0 .4rem; }
+.doc blockquote cite { display: block; font-style: normal; font-size: .85rem; color: var(--ink-faint); margin-top: .35rem; }
+.doc .note { background: var(--band); color: var(--band-ink); border-radius: var(--radius); padding: 1.15rem 1.35rem; margin: 1.5rem 0 2rem; }
+.doc .note p, .doc .note li { color: var(--band-ink); }
+.doc .note a { color: var(--band-ink); text-decoration: underline; }
+.doc .note .eyebrow { color: var(--band-soft); margin-bottom: .35rem; }
+.doc .sources { font-size: .9rem; }
+.doc .sources li { margin-bottom: .6rem; }
+.doc .toc { background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1rem 1.25rem; margin: 0 0 2.25rem; }
+.doc .toc ol { margin: 0; }
+.doc .toc a { text-decoration: none; }
+.doc .toc a:hover { text-decoration: underline; }
+.doc .disclaimer { border-top: 1px solid var(--line); padding-top: 1.25rem; margin-top: 3rem; font-size: .9rem; color: var(--ink-faint); }
+.doc .disclaimer p { color: var(--ink-faint); }
+.guide-list { list-style: none; padding: 0; margin: 0; }
+.guide-list li { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.15rem 1.35rem; margin: 0 0 1rem; }
+.guide-list h2 { margin: 0 0 .35rem; font-size: 1.15rem; }
+.guide-list p { margin: 0; }
+.guide-list .when { color: var(--ink-faint); font-size: .85rem; margin-top: .5rem; }
