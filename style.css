@@ -492,3 +492,20 @@ html.js .panel { position: sticky; top: 0; }
 .guide-list h2 { margin: 0 0 .35rem; font-size: 1.15rem; }
 .guide-list p { margin: 0; }
 .guide-list .when { color: var(--ink-faint); font-size: .85rem; margin-top: .5rem; }
+/* ---- Guides: tables (comparisons, worked examples). The wrapper scrolls
+   sideways on a phone so the page itself never does. ---- */
+.doc .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0 1.75rem;
+  border: 1px solid var(--line); border-radius: var(--radius); }
+.doc table { border-collapse: collapse; width: 100%; font-size: .92rem; line-height: 1.45; }
+.doc th, .doc td { text-align: left; vertical-align: top; padding: .65rem .8rem; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+.doc thead th { background: var(--bg-soft); color: var(--ink); font-weight: 600; }
+.doc tbody th { color: var(--ink); font-weight: 600; }
+.doc tbody tr:last-child th, .doc tbody tr:last-child td { border-bottom: 0; }
+.doc table.wide { min-width: 36rem; }
+@media (max-width: 480px) {
+  .doc table { font-size: .86rem; }
+  .doc th, .doc td { padding: .55rem .5rem; }
+}
+.doc .table-note { font-size: .88rem; color: var(--ink-faint); margin-top: -1rem; }
+.doc .download { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; margin: 0 0 2rem; }
+.doc .download .when { color: var(--ink-faint); font-size: .9rem; }
