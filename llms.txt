@@ -37,6 +37,20 @@ Key facts, so they need not be inferred:
   it is stored, and what leaves the device (nothing, other than the user's own iCloud).
 - [Support](https://childarrangements.com/support.html): common questions and how to
   get help.
+- [Guides](https://childarrangements.com/guides/): sourced reference pages for parents
+  in England and Wales.
+- [Keeping a contact record for the family court](https://childarrangements.com/guides/keeping-a-contact-record.html):
+  what to write and leave out, and what Practice Direction 27A (from 2 March 2026)
+  means for contact notes in the court bundle. Cites the rules and cases.
+- [Free chronology template](https://childarrangements.com/guides/chronology-template.html):
+  a printable A4 chronology (PDF) with a worked example and how to keep each row to one
+  sentence of fact, per Practice Direction 27A.
+- [Arrangements Log vs OurFamilyWizard](https://childarrangements.com/guides/arrangements-log-vs-ourfamilywizard.html):
+  a shared two-parent platform compared with a private one-parent record; prices,
+  data and where OurFamilyWizard is the better choice. Checked 30 September 2026.
+- [Arrangements Log vs Casewell](https://childarrangements.com/guides/arrangements-log-vs-casewell.html):
+  two private single-parent record apps compared on price, platforms, attachments,
+  AI and analytics. Checked 30 September 2026.
 - [App Store listing](https://apps.apple.com/gb/app/arrangements-log/id6794839974):
   screenshots, current version and reviews.
 
