@@ -60,6 +60,9 @@ shipped app doesn't have.
 - **No third-party requests at all.** System font stack, no Google Fonts, no CDN,
   no analytics. The page claims the app shares nothing with anyone; loading a
   webfont would hand every visitor's IP to Google while making that claim.
+  (One qualifier: on iPhone and iPad, Safari itself fetches the Smart App
+  Banner's details from Apple. See "Smart App Banner and App Store campaign
+  links" below.)
 - **No Apple "Download on the App Store" badge.** The buttons are plain text
   links. Apple's badge artwork has its own usage rules — if you want it, take the
   official SVG from Apple's Marketing Resources and drop it inside the existing
@@ -68,6 +71,47 @@ shipped app doesn't have.
   `AppStore/LISTING.md` and the app README; the two quoted Analysis findings are
   examples of wording the app actually generates.
 - **Light and dark**, and responsive down to 375px.
+
+## Smart App Banner and App Store campaign links
+
+Every page carries this line in its `<head>`, straight after the `viewport` meta
+tag:
+
+```html
+<meta name="apple-itunes-app" content="app-id=6794839974">
+```
+
+It makes Safari on iPhone and iPad show Apple's native Smart App Banner (the
+app's icon, name and a Get/View button) at the top of the page. Other browsers
+ignore it. **Any new page must get the same line in its `<head>`.**
+
+**Third-party requests:** the page itself still makes none. But to draw the
+banner, iOS/iPadOS Safari itself fetches the app's name, icon and rating from
+Apple. That request comes from the browser, not from anything the page loads.
+
+### Campaign tokens (for later)
+
+App Store links can carry two campaign tokens, which App Store Connect then
+reports under App Analytics:
+
+- `pt`: the provider token, which identifies Neutrade Ltd's developer account;
+- `ct`: the campaign name, free text of up to 40 characters.
+
+For example:
+
+```
+https://apps.apple.com/gb/app/arrangements-log/id6794839974?pt=<PROVIDER_TOKEN>&ct=<campaign>
+```
+
+The banner's optional `affiliate-data` parameter can carry the same tokens:
+
+```html
+<meta name="apple-itunes-app" content="app-id=6794839974, affiliate-data=pt=<PROVIDER_TOKEN>&ct=<campaign>">
+```
+
+**The provider token is not yet known.** Take it from App Store Connect ▸
+Analytics ▸ Campaign link generator. Never guess or invent one. Until it is
+known, the store links and the banner stay without `pt`/`ct`.
 
 ## Local preview
 
